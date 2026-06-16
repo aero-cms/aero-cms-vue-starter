@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute();
-const page = Number(route.query.page) || 1;
-const { data: newsRes, error } = await useNews({ page, pageSize: 12 });
+const page = computed(() => Number(route.query.page) || 1);
+const { data: newsRes, error } = await useNews(useCmsLangParams({ page, pageSize: 12 }));
 const haberler = computed(() => newsRes.value ?? []);
 </script>
 

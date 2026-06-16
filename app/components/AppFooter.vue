@@ -3,7 +3,8 @@ import { usePreviewableContent } from '@aero-cms/vue-sdk';
 import { mergeComponentContent } from '~/lib/cms-content';
 import { siteFooterSchema } from '~/lib/schemas';
 
-const { data: footerApi } = await useComponentContent(siteFooterSchema.key);
+const langOptions = useCmsLangOptions();
+const { data: footerApi } = await useComponentContent(siteFooterSchema.key, langOptions);
 const { data: menu } = await useMenu('footer');
 
 const serverContent = computed(() =>

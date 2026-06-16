@@ -7,7 +7,8 @@ const props = defineProps<{
   viewAllHref: string;
 }>();
 
-const { data: apiData } = await useComponentContent(props.schema.key);
+const langOptions = useCmsLangOptions();
+const { data: apiData } = await useComponentContent(props.schema.key, langOptions);
 const serverContent = computed(() => mergeComponentContent(props.schema, apiData.value ?? undefined));
 const { content, isHighlighted } = usePreviewableContent(props.schema.key, serverContent);
 </script>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: eventsRes, error } = await useEvents({ pageSize: 12 });
+const { data: eventsRes, error } = await useEvents(useCmsLangParams({ pageSize: 12 }));
 const etkinlikler = computed(() => eventsRes.value ?? []);
 </script>
 

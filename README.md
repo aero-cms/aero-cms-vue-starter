@@ -61,6 +61,10 @@ Schema tanımları: `app/lib/schemas.ts`
 
 URL'de `?cms-preview=true` ile admin panelden canlı önizleme çalışır. Yalnızca `NUXT_PUBLIC_ADMIN_ORIGIN` adresinden gelen mesajlar kabul edilir.
 
+## Çoklu Dil (i18n)
+
+Header'daki dil seçici `aero_lang` çerezini ayarlar. CMS içerik istekleri seçilen `lang` parametresi ile yapılır.
+
 ## Build ve Docker
 
 ```bash

@@ -3,15 +3,19 @@ const route = useRoute();
 const router = useRouter();
 const searchInput = ref(String(route.query.q ?? ''));
 const q = computed(() => String(route.query.q ?? ''));
+const lang = useRequestLang();
 const client = useCmsClient();
 const { data: results } = await useAsyncData(
-  () => `search-${q.value}`,
+  () => `search-${q.value}-${lang.value ?? ''}`,
   async () => {
     if (!q.value.trim()) return [];
-    const res = await client.search(q.value, { pageSize: 20 });
+    const res = await client.search(q.value, {
+      pageSize: 20,
+      ...(lang.value ? { lang: lang.value } : {}),
+    });
     return res.success ? res.data ?? [] : [];
   },
-  { watch: [q] },
+  { watch: [q, lang] },
 );
 
 function runSearch() {

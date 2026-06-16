@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
-const { data: page, error } = await usePage(slug);
+const lang = useRequestLang();
+const { data: page, error } = await usePage(slug, { lang });
 </script>
 
 <template>

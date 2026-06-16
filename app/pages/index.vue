@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { eventsListSchema, newsListSchema } from '~/lib/schemas';
 
-const { data: newsRes } = await useNews({ pageSize: 6 });
-const { data: eventsRes } = await useEvents({ pageSize: 4 });
+const lang = useRequestLang();
+const { data: newsRes } = await useNews(useCmsLangParams({ pageSize: 6 }));
+const { data: eventsRes } = await useEvents(useCmsLangParams({ pageSize: 4 }));
 const haberler = computed(() => newsRes.value ?? []);
 const etkinlikler = computed(() => eventsRes.value ?? []);
 </script>

@@ -3,7 +3,8 @@ import { heroSchema } from '~/lib/schemas';
 import { mergeComponentContent } from '~/lib/cms-content';
 import { usePreviewableContent } from '@aero-cms/vue-sdk';
 
-const { data: heroApi } = await useComponentContent(heroSchema.key);
+const langOptions = useCmsLangOptions();
+const { data: heroApi } = await useComponentContent(heroSchema.key, langOptions);
 const serverContent = computed(() => mergeComponentContent(heroSchema, heroApi.value ?? undefined));
 const { content, isHighlighted } = usePreviewableContent(heroSchema.key, serverContent);
 </script>

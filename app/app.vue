@@ -16,7 +16,8 @@ import { siteSeoSchema } from '~/lib/schemas';
 
 const { isPreview } = useCmsPreview();
 
-const { data: seoApi } = await useComponentContent(siteSeoSchema.key);
+const langOptions = useCmsLangOptions();
+const { data: seoApi } = await useComponentContent(siteSeoSchema.key, langOptions);
 const seo = computed(() => mergeComponentContent(siteSeoSchema, seoApi.value ?? undefined));
 
 useSeoMeta({
