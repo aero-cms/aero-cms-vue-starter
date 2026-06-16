@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { eventsListSchema, newsListSchema } from '~/lib/schemas';
+
 const { data: newsRes } = await useNews({ pageSize: 6 });
 const { data: eventsRes } = await useEvents({ pageSize: 4 });
 const haberler = computed(() => newsRes.value ?? []);
@@ -6,20 +8,11 @@ const etkinlikler = computed(() => eventsRes.value ?? []);
 </script>
 
 <template>
-  <section class="hero">
-    <div class="container">
-      <h1>AeroCMS</h1>
-      <p>Kurumsal web sitenizi kolayca yönetin</p>
-      <div class="btn-row">
-        <NuxtLink to="/haberler" class="btn btn-primary">Haberler</NuxtLink>
-        <NuxtLink to="/etkinlikler" class="btn btn-secondary">Etkinlikler</NuxtLink>
-      </div>
-    </div>
-  </section>
+  <HeroSection />
 
   <section class="section">
     <div class="container">
-      <h2 class="page-title">Son Haberler</h2>
+      <SectionHeader :schema="newsListSchema" view-all-href="/haberler" />
       <div v-if="haberler.length" class="card-grid">
         <NuxtLink v-for="haber in haberler" :key="haber.id" :to="`/haberler/${haber.id}`" class="card">
           <img v-if="haber.gorselUrl" :src="haber.gorselUrl" :alt="haber.baslik" />
@@ -36,7 +29,7 @@ const etkinlikler = computed(() => eventsRes.value ?? []);
 
   <section class="section section-muted">
     <div class="container">
-      <h2 class="page-title">Yaklaşan Etkinlikler</h2>
+      <SectionHeader :schema="eventsListSchema" view-all-href="/etkinlikler" />
       <div v-if="etkinlikler.length" class="card-grid">
         <NuxtLink v-for="e in etkinlikler" :key="e.id" :to="`/etkinlikler/${e.id}`" class="card">
           <div class="card-body">

@@ -169,3 +169,9 @@ a {
   font-weight: 600;
   cursor: pointer;
 }
+
+[data-cms-highlight="true"] {
+  outline: 2px solid #7c3aed !important;
+  outline-offset: 2px;
+  border-radius: 4px;
+}

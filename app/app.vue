@@ -1,5 +1,6 @@
 <template>
-  <div class="app-shell">
+  <div class="app-shell" :class="{ 'is-preview': isPreview }">
+    <PreviewBanner />
     <AppHeader />
     <main class="main">
       <NuxtPage />
@@ -8,11 +9,21 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import { useCmsPreview } from '~/composables/useCmsPreview';
+
+const { isPreview } = useCmsPreview();
+</script>
+
 <style scoped>
 .app-shell {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.app-shell.is-preview {
+  padding-top: 32px;
 }
 
 .main {

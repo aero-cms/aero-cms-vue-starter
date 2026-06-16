@@ -10,7 +10,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "cms:sync": "npx tsx node_modules/@aero-cms/react-sdk/dist/cli.js sync --schemas ./app/lib/schemas.ts"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,9 @@
     "nuxt": "^4.4.8",
     "vue": "^3.5.35",
     "vue-router": "^5.1.0"
+  },
+  "devDependencies": {
+    "@aero-cms/react-sdk": "^1.0.3",
+    "tsx": "^4.19.0"
   }
 }
