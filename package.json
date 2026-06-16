@@ -1,0 +1,30 @@
+{
+  "name": "aero-cms-vue-starter",
+  "version": "1.0.0",
+  "description": "Nuxt 4 starter website for Aero CMS",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "node scripts/patch-vue-sdk.mjs && nuxt prepare",
+    "typecheck": "nuxt typecheck"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aero-cms/aero-cms-vue-starter.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@aero-cms/core": "^1.0.0",
+    "@aero-cms/vue-sdk": "^1.0.0",
+    "nuxt": "^4.4.8",
+    "vue": "^3.5.35",
+    "vue-router": "^5.1.0"
+  }
+}

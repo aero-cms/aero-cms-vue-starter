@@ -1,0 +1,8 @@
+<template>
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>AeroCMS</strong> — Kurumsal web sitesi yönetim sistemi.</p>
+      <p>© {{ new Date().getFullYear() }} AeroCMS. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+</template>
