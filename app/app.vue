@@ -11,8 +11,18 @@
 
 <script setup lang="ts">
 import { useCmsPreview } from '@aero-cms/vue-sdk';
+import { mergeComponentContent } from '~/lib/cms-content';
+import { siteSeoSchema } from '~/lib/schemas';
 
 const { isPreview } = useCmsPreview();
+
+const { data: seoApi } = await useComponentContent(siteSeoSchema.key);
+const seo = computed(() => mergeComponentContent(siteSeoSchema, seoApi.value ?? undefined));
+
+useSeoMeta({
+  title: () => seo.value.siteTitle,
+  description: () => seo.value.siteDescription,
+});
 </script>
 
 <style scoped>
