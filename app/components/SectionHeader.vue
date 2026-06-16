@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { mergeComponentContent } from '~/lib/cms-content';
-import { usePreviewableContent } from '~/composables/useCmsPreview';
+import { usePreviewableContent } from '@aero-cms/vue-sdk';
 
 const props = defineProps<{
   schema: { key: string; fields: Record<string, { default?: string | number | boolean }> };

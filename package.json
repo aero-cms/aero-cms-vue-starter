@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@aero-cms/core": "^1.0.0",
-    "@aero-cms/vue-sdk": "^1.0.1",
+    "@aero-cms/vue-sdk": "^1.0.2",
     "nuxt": "^4.4.8",
     "vue": "^3.5.35",
     "vue-router": "^5.1.0"

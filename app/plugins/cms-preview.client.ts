@@ -1,11 +1,19 @@
-import { bindPreviewListeners, cmsPreviewKey, createPreviewState } from '../composables/useCmsPreview';
+import {
+  bindCmsPreviewListeners,
+  cmsPreviewKey,
+  createCmsPreviewState,
+} from '@aero-cms/vue-sdk';
 
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig();
-  const ctx = createPreviewState();
+  const ctx = createCmsPreviewState();
+  const adminOrigin = config.public.adminOrigin as string;
 
-  if (import.meta.client) {
-    bindPreviewListeners(ctx, [config.public.adminOrigin as string].filter(Boolean));
+  if (import.meta.client && adminOrigin) {
+    bindCmsPreviewListeners(ctx, {
+      allowedOrigins: [adminOrigin],
+      targetOrigin: adminOrigin,
+    });
   }
 
   nuxtApp.vueApp.provide(cmsPreviewKey, ctx);

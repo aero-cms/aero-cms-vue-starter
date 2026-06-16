@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useCmsPreview } from '../composables/useCmsPreview';
+import { useCmsPreview } from '@aero-cms/vue-sdk';
 
 const { isPreview } = useCmsPreview();
 </script>
