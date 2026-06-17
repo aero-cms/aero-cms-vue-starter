@@ -11,8 +11,12 @@ function xmlEscape(value: string) {
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const siteUrl = String(config.public.siteUrl || 'http://localhost:3000').replace(/\/$/, '');
+  const headers = getRequestHeaders(event);
+  const host = headers['x-forwarded-host'] ?? headers.host;
   const cms = createCmsClient({
     baseUrl: String(config.public.cmsApiUrl || 'http://localhost:5047'),
+    siteSlug: config.public.cmsSiteSlug || undefined,
+    siteHost: host ? String(host).split(',')[0].trim() : undefined,
   });
 
   const staticPaths = ['', '/haberler', '/etkinlikler', '/dokumanlar', '/iletisim', '/arama'];

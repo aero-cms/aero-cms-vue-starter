@@ -6,12 +6,14 @@ export default defineNuxtConfig({
   modules: ['@aero-cms/vue-sdk/nuxt'],
   aeroCms: {
     baseUrl: process.env.NUXT_PUBLIC_CMS_API_URL || 'http://localhost:5047',
+    siteSlug: process.env.NUXT_CMS_SITE_SLUG,
   },
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
       adminOrigin: process.env.NUXT_PUBLIC_ADMIN_ORIGIN || 'http://localhost:5173',
       cmsApiUrl: process.env.NUXT_PUBLIC_CMS_API_URL || 'http://localhost:5047',
+      cmsSiteSlug: process.env.NUXT_CMS_SITE_SLUG || '',
     },
   },
 });
