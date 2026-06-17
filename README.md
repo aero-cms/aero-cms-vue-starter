@@ -5,6 +5,7 @@ Nuxt 4 starter website for Aero CMS using `@aero-cms/vue-sdk`. Public content AP
 > **İlk kez mi?** Tüm kurulum adımları:
 > [aero-cms-setup — Başlangıç Rehberi](https://github.com/aero-cms/aero-cms-setup/blob/main/docs/GETTING_STARTED.md)
 > · [Framework seçimi](https://github.com/aero-cms/aero-cms-setup/blob/main/docs/FRAMEWORK_GUIDE.md)
+> · [npm paketleri](https://github.com/aero-cms/aero-cms-setup/blob/main/docs/PACKAGES.md)
 
 ## Gereksinimler
 
@@ -92,3 +93,9 @@ Docker Compose stack'inde API genelde `http://api:8090`, admin `http://admin:80`
 - [aero-cms-admin](https://github.com/aero-cms/aero-cms-admin)
 - [@aero-cms/vue-sdk](https://www.npmjs.com/package/@aero-cms/vue-sdk)
 - [aero-cms-setup](https://github.com/aero-cms/aero-cms-setup)
+
+---
+
+**English summary:** Nuxt 4 starter. Schemas from `@aero-cms/vue-sdk/schema`, sync via
+`@aero-cms/core` CLI. See
+[package & starter map](https://github.com/aero-cms/aero-cms-setup/blob/main/docs/PACKAGES.md#english-summary).
